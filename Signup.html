@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <head>
+    <link rel="stylesheet" href="css\header.css"/>
+    <link rel="stylesheet" href="css\Signupcss.css"/>
+  </head>
+
+     <script src="js\SignupValidation.js"></script>
+
+      <script>
+var cityOptions = {
+    state1: ["Kannur", "Kozhikode", "Kochi"],
+    state2: ["Chennai", "Coimbatore", "Madurai"],
+    state3: ["Ahamedabad", "Surat", "Rajkot"]
+  };
+  function updateCities() {
+    var stateDropdown = document.getElementById("state");
+    var cityDropdown = document.getElementById("city");
+    var selectedState = stateDropdown.value;
+    
+
+    cityDropdown.innerHTML = "";
+
+
+    var cities = cityOptions[selectedState];
+    for (var i = 0; i < cities.length; i++) {
+      var option = document.createElement("option");
+      option.text = cities[i];
+      option.value = cities[i];
+      cityDropdown.add(option);
+    }
+  }
+
+
+      
+
+
+</script>
+  <body>
+    <div class="header">
+      <div class="">
+          <img style="float:left;width:100px;height:50px;padding-left:10px;"  src="https://cdn.logojoy.com/wp-content/uploads/2018/05/30162618/1533-768x591.png">
+          </div>
+          <div class="nav">
+      <a  href="C:\Users\JIJINA\Desktop\mywebsite\Aboutus.html">About us</a>
+      <a  href="C:\Users\JIJINA\Desktop\mywebsite\signin.html">Sign in</a>
+      <a  href="C:\Users\JIJINA\Desktop\mywebsite\Signup.html">Sign up</a>
+      <a  href="C:\Users\JIJINA\Desktop\mywebsite\Contactus.html">Contact us</a>
+      </div>
+  </div>
+  
+     <div class="container">
+      <div style="font-size:25px ;">
+        <h3>Sign up</h3>
+       </div>
+      <form action="#" class="form">
+        <div class="input-box">
+          <label>First name</label>
+          <input type="text" placeholder="Enter first name" id="firstname" onfocusout="validateFirstName()" required />
+        </div>
+        <div  class="error" id="firstNameError"> </div>
+        <div id="first-name-err"></div>
+        <div class="input-box">
+          <label>Last name</label>
+          <input type="text" placeholder="Enter last name" onfocusout="validateLastName()"  id="lastname" required />
+        </div>
+        <div  class="error" id="lastNameError"> </div>
+
+        <div class="input-box">
+          <label>Birth date</label>
+          <input type="date" placeholder="Enter birth date" id="dob" onfocusout="validateDateOfBirth()" required />
+        </div>
+        <div id="dobError" class="error"></div>
+        <div class="input-box">
+          <label>Age</label>
+          <input type="text"  onfocusout="validateAge()" placeholder="Enter age" id="age" required />
+        </div>
+        <div id="ageError" class="error"></div>       
+          <div class="gender-box">
+            <label>Gender</label>
+            <div class="gender-box">
+              <div class="gender">
+                <input type="radio" id="check-male" name="gender" checked />
+                <label for="check-male">male</label>
+              
+                <input type="radio" id="check-female" name="gender" />
+                <label for="check-female">Female</label>
+              </div>
+          </div>
+          </div>
+
+           <div class="input-box"> 
+          <label>Email address</label>
+          <input type="email" placeholder="Enter email address"  onfocusout="validateEmail() " id="email" required />
+           </div>
+           <div id="emailError" class="error"></div>
+      
+          <div class="input-box">
+            <label>Phone number</label>
+            <input type="number" placeholder="Enter phone number" onfocusout="validatePhoneNumber()" id="phoneNumber" required />
+          </div>
+          <div id="phoneNumberError" class="error"></div>
+          
+    
+           
+            
+                <div class="select-box">
+               <label ><b>State</label><br>
+               <select   id="state" name="state" onchange="updateCities()" required>
+                   <option value=""> Select State </option>
+                   <option value="state1">Kerala</option>
+                   <option value="state2">Tamil Nadu</option>
+                   <option value="state3">Odisha</option>
+                </select>
+                </div><br>
+
+                <div class="select-box">
+                <label><b>City</b></label><br>
+                 <select  id="city" name="city" required>
+                      <option value="">Select City </option>
+                 </select>
+                </div>      
+    
+          
+        <button onclick="signUp()">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
